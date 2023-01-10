@@ -26,17 +26,19 @@
   background-color: #282c34;
   display: grid;
   grid-template-rows: auto auto;
-  grid-template-columns: auto auto;
-  grid-template-areas: "title title" "author p";
+  grid-template-columns: auto auto auto;
+  grid-template-areas: "title title title" "author view votes";
   font-size: calc(10px + 1vmin);
   color: white;
   list-style-type: none;
   border: white solid 1px;
   margin: 1%;
+  padding: 1%;
 }
 
 .article-card p {
  margin: 1%;
+
 }
 
 #title {
@@ -46,4 +48,8 @@
 
 #author {
 grid-area: author;
+}
+
+#view-article {
+  grid-area: view;
 }

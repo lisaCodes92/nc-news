@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "../utils/api";
 import { useParams } from "react-router-dom";
+import ArticleCard from "./ArticleCard";
 
 const Articles = () => {
     const [isloading, setIsLoading] = useState(false);
@@ -20,11 +21,7 @@ const Articles = () => {
     return (
         <ul className="article-list">
             {articles.map((article) => (
-                <li className="article-card" key={article.article_id}>
-                    <p id="title">{article.title}</p>
-                    <p id="author">Written By: {article.author}</p>
-                    <p>Votes: { article.votes }</p>
-                </li>
+                <ArticleCard key={article.article_id} article={article} />
             ))}
         </ul>
     )
