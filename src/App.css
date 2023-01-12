@@ -1,55 +1,110 @@
 .App {
   text-align: center;
+  margin: 0;
 }
 
-
 .App-header {
-  background-color: #282c34;
+  background-color: #223E5D;
   min-height: 20%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #F1F4F0 ;
+}
+.App-header h1 {
+  background-color: #223E5D;
 }
 
+nav {
+  background-color: #797885;
+  padding: 2%;
+}
+
+nav ul {
+  background-color: #797885;
+}
+
+a {
+  text-decoration: none;
+  background-color: #797885;
+  color: #F1F4F0
+}
+
+a:hover {
+  color: #223E5D;
+}
+
+a:active {
+  color: #223E5D;
+}
+
+nav li {
+  background-color: #797885;
+  display: inline;
+  padding: .5% 5%;
+  color: #F1F4F0;
+  font-size: larger;
+  font-weight: bold;
+}
+
+
 .article-list {
-  background-color: #282c34;
-  display: flex;
-  flex-direction: column;
+  background-color: #F1F4F0;
+  display: grid;
+  grid-row-gap: 1%;
   justify-content: center;
-  color: white;
+  color: #223E5D;
+  padding: 0 2%;
 }
 
 .article-card {
-  background-color: #282c34;
+  background-color: #A5A7A6;
   display: grid;
   grid-template-rows: auto auto;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto 20% 10%;
   grid-template-areas: "title title title" "author view votes";
   font-size: calc(10px + 1vmin);
-  color: white;
+  color: #223E5D;
   list-style-type: none;
-  border: white solid 1px;
-  margin: 1%;
+  border: #7F7F7C solid 3px;
   padding: 1%;
 }
 
 .article-card p {
- margin: 1%;
-
+  background-color: #A5A7A6;
 }
 
 #title {
   grid-area: title;
   font-weight: bold;
+  background-color: #A5A7A6;
 }
 
 #author {
-grid-area: author;
+  grid-area: author;
+  background-color: #A5A7A6;
 }
 
-#view-article {
+.article-card a {
+  background-color: #7F7F7C;
+  padding: 0;
+  margin: 0;
+  color: #F1F4F0;
   grid-area: view;
+  font-size: large;
+  text-decoration: none;
+}
+
+.article-card button{
+  background-color: #7F7F7C;
+  color: #F1F4F0;
+  font-weight: bolder;
+  border: none;
+  border-radius: 25px;
+}
+
+.article-card button:active {
+  transform: translateY(3px);
 }

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import ArticleCard from "./ArticleCard";
 
 const Articles = () => {
-    const [isloading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const [articles, setArticles] = useState([]);
     const { topic_slug } = useParams()
     
@@ -16,7 +16,7 @@ const Articles = () => {
         })
     }, [topic_slug])
 
-    if (isloading) return <p>'Loading....'</p>;
+    if (isLoading) return <p>'Loading....'</p>;
 
     return (
         <ul className="article-list">
