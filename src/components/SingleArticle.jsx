@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getArticleById } from '../utils/api';
-import Comments from "./Comments";
 
 
 
@@ -30,7 +29,7 @@ const SingleArticle = () => {
             <p id='article-body'>{article.body}</p>
             <p id='vote-count'>Votes: {article.votes}</p>
             <button id='upvote'>Add Vote</button>
-            <Comments />
+            
         </main>
       
     )

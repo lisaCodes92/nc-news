@@ -10,8 +10,8 @@
     grid-template-columns: auto auto 20%;
     grid-template-areas: 'article-title article-title article-title'                          
                         'article-body article-body article-body'
-                        'article-author vote-count upvote'
-                        'comment-list comment-list comment-list' 
+                        'article-author article-author vote-count'
+                        'home null upvote';
 }
 
 #article-title {
@@ -35,15 +35,13 @@
     grid-area: upvote;  
     font-weight: bolder;
     border-radius: 25px;
+    padding: 5%;
     background-color: #A5A7A6;
     border: none;
     box-shadow: 0 6px #7F7F7C;
     color:#223E5D;
     font-weight: bolder;
     font-size: large;
-    width: 40%;
-    height: 40%;
-    align-self: center;
 }
 
 #upvote:active {
@@ -57,18 +55,6 @@
     justify-content: left;
 }
 
-.comment-list {
-    grid-area: comment-list;
-    list-style-type: none;
-    border-top: #223E5D solid 5px;
-}
 
-.comment-card {
-    display: flex;
-    flex-direction: row-reverse;
-}
 
-.comment-card p{
-    padding: 1% 5%;
-}
 

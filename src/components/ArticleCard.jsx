@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Comments from "./Comments";
 
 const ArticleCard = ({ article }) => {
    
@@ -12,7 +11,6 @@ const ArticleCard = ({ article }) => {
             <button><Link to={`/articles/${article.article_id}`}>
                 View
             </Link></button>
-            <Comments />
         </li>
     )
 }
