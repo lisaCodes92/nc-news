@@ -2,6 +2,7 @@ import { getComments } from "../utils/api";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CommentCard from "./CommentCard";
+import CommentAdder from './CommentAdder'
 
 const Comments = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -22,6 +23,7 @@ const Comments = () => {
         
         <ul className="comment-list">
             <h2>Comments</h2>
+            <CommentAdder />
             {comments.map((comment) => {
                return <CommentCard key={comment.created_at} comment={comment} />
             })}
