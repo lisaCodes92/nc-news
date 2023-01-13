@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getArticleById } from '../utils/api';
 import Comments from "./Comments";
+import Voting from './ArticleVotes';
+
 
 
 
@@ -28,8 +30,7 @@ const SingleArticle = () => {
             <h2 id='article-title'>{article.title}</h2>
             <h3 id='article-author'> Written by: {article.author}</h3>
             <p id='article-body'>{article.body}</p>
-            <p id='vote-count'>Votes: {article.votes}</p>
-            <button id='upvote'>Add Vote</button>
+            <Voting articleId={article.article_id} votes={article.votes} />
             <Comments />
         </main>
       

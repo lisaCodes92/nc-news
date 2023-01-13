@@ -22,3 +22,14 @@ export const getComments = (article_id) => {
         return res.data;
     });
 }
+
+export const patchArticle = (article_id, increment) => {
+    return newsApi
+      .patch(`/articles/${article_id}`, {
+        inc_votes: increment,
+      })
+      .then((res) => {
+        console.log(res.data);
+      });
+
+}
