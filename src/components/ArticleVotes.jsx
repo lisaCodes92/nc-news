@@ -4,40 +4,39 @@ import { patchArticle } from "../utils/api";
 
 const Voting = ({votes, articleId}) => {
     const [voteUpdate, setVoteUpdate] = useState(0);
-    const [hasVoted, setHasVoted] = useState(false);
-
-    const upVote = () => {
-        setVoteUpdate((currVoteUpdate) => currVoteUpdate + 1);
-        setHasVoted(true);
+    const [hasUpVoted, setHasUpVoted] = useState(false);
+    const [hasDownVoted, setHasDownVoted] = useState(false);
+    
+     
+    const castVote = (vote) => {
+        console.log(vote)
+        setVoteUpdate((currVoteUpdate) => currVoteUpdate + vote);
         patchArticle(articleId, 1).catch((err) => {
-            setVoteUpdate((currVoteUpdate) => currVoteUpdate - 1);
-            console.log(err);
+            setVoteUpdate((currVoteUpdate) => currVoteUpdate - vote);
+            alert("Sorry that didn't work...");
         })
     }
 
-    const downVote = () => {
-        setVoteUpdate((currVoteUpdate) => currVoteUpdate - 1);
-        setHasVoted(true);
-        patchArticle(articleId, -1).catch((err) => {
-            setVoteUpdate((currVoteUpdate) => currVoteUpdate + 1);
-            console.log(err);
-        })
-    }
-
-    if (hasVoted) return (
-        <section id='vote-count'>
-            <p>Votes {votes + voteUpdate}</p>
-            <div id="vote-buttons"> 
-            </div>
-        </section>
-    )
-
+   
+ 
     return (
         <section id='vote-count'>
             <p>Votes {votes + voteUpdate}</p>
             <div id="vote-buttons">
-            <button id='upvote' onClick={upVote}>👍</button>
-            <button id='downvote' onClick={downVote}>👎</button>
+
+                {hasUpVoted ? <button id='upvote' disabled>👍</button> : 
+                    <button id='upvote' onClick={() => {
+                        setHasUpVoted(true);
+                        setHasDownVoted(false);
+                        castVote(1);
+                    }}>👍</button>}
+                
+                {hasDownVoted ? <button id='upvote' disabled>👎</button> :
+                    <button id='downvote' onClick={() => {
+                        setHasUpVoted(false);
+                        setHasDownVoted(true);
+                        castVote(-1);
+                    }}>👎</button>}            
             </div>
         </section>
     )
