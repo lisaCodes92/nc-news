@@ -23,7 +23,7 @@ const Comments = () => {
         
         <ul className="comment-list">
             <h2>Comments</h2>
-            <CommentAdder />
+            <CommentAdder setComments={setComments} article_id={article_id} />
             {comments.map((comment) => {
                return <CommentCard key={comment.created_at} comment={comment} />
             })}

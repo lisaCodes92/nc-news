@@ -29,7 +29,14 @@ export const patchArticle = (article_id, increment) => {
         inc_votes: increment,
       })
       .then((res) => {
-        console.log(res.data);
+       return res.data;
       });
 
+}
+
+export const postComment = (newComment, article_id, author) => {
+    console.log(newComment, article_id, author);
+    return newsApi.post(`/articles/${article_id}/comments`, {author: author, body: newComment}).then((res) => {
+        return res.data.comment;
+    })
 }

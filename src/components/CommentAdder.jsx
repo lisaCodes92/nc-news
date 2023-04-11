@@ -1,31 +1,27 @@
-import { getStaticContextFromError } from "@remix-run/router";
+import { postComment } from "../utils/api";
 import { useState } from "react";
 
-const CommentAdder = (props) => {
-    const [newComment, setNewComment] = useState({
-          {
-    body: 
-    votes: 0,
-    author: ,
-    created_at: Date.now(),
-  },
-    })
-
-    const commentToAdd = () => {
-        setNewComment()
-    }
+const CommentAdder = ({setComments, article_id}) => {
+    const [commentBody, setCommentBody] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        props.setComments((currComments) => {
-            return [{newComment}, ...currComments];
+        postComment(commentBody, article_id, "tickle122").then((comment) => {
+           setComments((currComments) => {
+            return [comment, ...currComments];
        })
+        });
+        
+       
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input type="text" />
-            <button onClick={commentToAdd}>Add Comment</button>
+        <form onSubmit={handleSubmit} id='comment-adder'>
+            <textarea type="text"
+                value={commentBody}
+                placeholder="Write a comment..."
+                onChange={(e) => setCommentBody(e.target.value)}/>
+            <button type="submit" onSubmit={handleSubmit}>Add Comment</button>
         </form>
     )
 }
