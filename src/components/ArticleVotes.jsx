@@ -11,7 +11,7 @@ const Voting = ({votes, articleId}) => {
     const castVote = (vote) => {
         console.log(vote)
         setVoteUpdate((currVoteUpdate) => currVoteUpdate + vote);
-        patchArticle(articleId, 1).catch((err) => {
+        patchArticle(articleId, vote).catch((err) => {
             setVoteUpdate((currVoteUpdate) => currVoteUpdate - vote);
             alert("Sorry that didn't work...");
         })

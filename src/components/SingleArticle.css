@@ -46,7 +46,7 @@
   }
 
 #upvote:active,
-#downvote {
+#downvote:active {
     transform: translateY(3px);
 }
 .single-article a {
@@ -61,14 +61,42 @@
     grid-area: comment-list;
     list-style-type: none;
     border-top: #223E5D solid 5px;
+    padding: 0;
 }
 
 .comment-card {
-    display: flex;
-    flex-direction: row-reverse;
+    display: grid;
+    grid-template-columns: 9% 19% auto;
 }
 
 .comment-card p{
     padding: 1% 5%;
 }
 
+#comment-adder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#comment-adder textarea{
+    height: 60px;  
+    width: 80%; 
+}
+
+#comment-adder button {
+    width: 30%;
+    height: 30px;
+    margin: 2% 0;
+    background-color: #7F7F7C;
+    color: #F1F4F0;
+    font-weight: bolder;
+    border: none;
+    border-radius: 25px;
+}
+
+#comment-adder button:active {
+    width: 30%;
+    margin: 2% 0;
+    transform: translateY(3px);
+}
